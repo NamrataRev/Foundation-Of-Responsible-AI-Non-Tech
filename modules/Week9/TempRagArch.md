@@ -59,7 +59,7 @@ Go to **[pinecone.io](https://www.pinecone.io)** and click **Sign Up Free**.
 **Screen 1 — Choose your plan:**
 Select **I'm building a small or personal project** and click **Start for free**
 
-![Pinecone plan selection screen — select small or personal project](images/pinecone_01a_plan.png)
+![Pinecone plan selection screen — select small or personal project](/modules/Week9/images/pinecone_01a_plan.png)
 
 Sign up with your Google account or email. Pinecone will then ask you three questions to customise your setup.
 
