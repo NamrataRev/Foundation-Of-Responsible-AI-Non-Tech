@@ -54,30 +54,31 @@ A for loop repeats once for each item in something iterable [Source 4]."
 
 ### Step 1 — Sign Up for Pinecone
 
-Go to **[pinecone.io](https://www.pinecone.io)** and click **Sign Up Free**.
+- Go to **[pinecone.io](https://www.pinecone.io)** and click **Sign Up Free**.
+- Sign up with your Google account or email. Pinecone will then ask you three questions to customise your setup.
+  <img src="../images/Signup.png" width="600" height="600">
 
-**Screen 1 — Choose your plan:**
-Select **I'm building a small or personal project** and click **Start for free**
+### Screen 1 — Choose your plan:
+- Select **I'm building a small or personal project** and click **Start for free**
 
-![Pinecone plan selection screen — select small or personal project](/modules/Week9/images/pinecone_01a_plan.png)
+<img src="../images/pinecone_01a_plan.png" width="600" height="600">
 
-Sign up with your Google account or email. Pinecone will then ask you three questions to customise your setup.
 
 **Screen 2 — First two questions:**
 - **What are you building or exploring?** → **RAG / Agents**
 - **What kind of data do you have?** → **Raw files (PDFs, docs, images)**
-
+ <img src="../images/RAGAgents and Raw files selected.png" width="600" height="600">
 ![Pinecone onboarding — RAG/Agents and Raw files selected](images/pinecone_01b_onboarding.png)
 
 **Screen 3 — Third question:**
 - **How will you build your solution?** → **No-code / low-code**
-
+ <img src="../images/No-codelow-code option.png" width="600" height="600">
 ![Pinecone onboarding — No-code/low-code option](images/pinecone_01c_build.png)
 
 **Screen 4 — Fourth question:**
 - **What no-code / low-code platform are you using?** → **Other**
 - In the text box that appears, type: **Pinecone Assistant**
-
+ <img src="../images/Other selected with Pinecone Assistant1.png" width="600" height="600">  <img src="../images/Other selected with Pinecone Assistant2.png" width="600" height="600">
 ![Pinecone onboarding — Other selected with Pinecone Assistant typed in the text box](images/pinecone_01d_platform.png)
 
 Click **Get Started**.
@@ -87,7 +88,7 @@ Click **Get Started**.
 ### Step 2 — Save Your API Key
 
 A popup appears immediately after setup: **"API key generated"**
-
+ <img src="../images/API key generated.png" width="600" height="600">
 ![Pinecone console showing API key generated popup with copy button](images/pinecone_02_console.png)
 
 **This is critical** — Pinecone will not show this key again after you close the popup.
@@ -108,7 +109,7 @@ You are now in the Pinecone Console. You can see **Assistant** in the left panel
 1. Click **Assistant** → **Assistants** in the left panel
 2. Click **Create an assistant**
 3. A popup appears — **"Set up your new assistant"**
-
+ <img src="../imagesCreate Assistant1.png" width="600" height="600">   <img src="../imagesCreate Assistant2.png" width="600" height="600">
 ![Pinecone Create Assistant popup with name field and Region dropdown](images/pinecone_03_create.png)
 
 Fill in:
@@ -122,7 +123,7 @@ Click **Create assistant**
 ### Step 4 — Select Claude as the Model
 
 Your assistant opens in the **Assistant playground**. On the right panel you will see **Chat model** set to GPT-4o by default.
-
+ <img src="../images/Chat model dropdown.png" width="600" height="600">  <img src="../images/Chat model dropdown2.png" width="600" height="600">
 ![Pinecone playground showing Chat model dropdown open with Claude Sonnet 4.5 visible](images/pinecone_05_model.png)
 
 Click the **Chat model** dropdown and select **Claude Sonnet 4.5 — Anthropic**
@@ -152,7 +153,7 @@ This is the system prompt — it tells Claude exactly how to behave. The instruc
 Click the **folder icon** 📁 at the top of the playground to open the files panel.
 
 Click **click to upload** and select your course note files — PDF, Word, or Markdown all work.
-
+ <img src="../images/Fileupload.png" width="600" height="600">
 ![Pinecone files panel showing uploaded markdown files with Ready status](images/pinecone_06_files.png)
 
 Pinecone automatically:
@@ -171,7 +172,7 @@ Click back to the playground and type a question about your uploaded notes in th
 
 For the Python files uploaded here:
 *"What is the difference between a while loop and a for loop?"*
-
+ <img src="../images/QuestionAnswer.png" width="600" height="600">
 ![Pinecone playground showing two questions — one correctly answered with citations, one correctly refused](images/pinecone_07_answer.png)
 
 Look carefully at what happened with two questions:
@@ -189,7 +190,7 @@ The assistant gave a detailed answer with `[4]` citations on every claim. Every 
 ### Step 8 — Verify a Citation
 
 Click on any citation number in the answer — for example `[4]`.
-
+ <img src="../images/Verify a Citation" width="600" height="600">
 ![Pinecone citation popup showing the exact chunk from 1-5.Conditionals.md that was retrieved](images/pinecone_08_citation.png)
 
 A popup shows:
