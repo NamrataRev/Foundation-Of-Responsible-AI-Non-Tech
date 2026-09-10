@@ -29,17 +29,17 @@ Pinecone is where your document chunks are stored as numbers (vectors) so they c
 
 Go to **https://pinecone.io** and click Sign Up. Verify your email and log in.
 
-![Pinecone signup page showing the Sign Up button]
+<img src="images/01-pinecone-signup.png" alt="Pinecone signup page" width="700"/>
 
 ### Step 1.2 — Create a vector index
 
 Once logged in, look at the left sidebar and click **Database**, then **Indexes**.
 
-![Pinecone left sidebar with Database and Indexes highlighted]
+<img src="images/02-pinecone-sidebar.png" alt="Pinecone left sidebar with Database and Indexes" width="700"/>
 
 Click the blue **"Create index"** button in the top right corner.
 
-![Pinecone Indexes page with Create Index button highlighted]
+<img src="images/03-pinecone-create-index-button.png" alt="Pinecone Indexes page with Create Index button" width="700"/>
 
 ### Step 1.3 — Configure your index
 
@@ -47,7 +47,7 @@ Give your index a name — for example `rag-docs`.
 
 Check the **"Custom settings"** box in the top right of the Configuration section.
 
-![Pinecone Create Index page with Custom Settings checkbox highlighted]
+<img src="images/04-pinecone-custom-settings.png" alt="Pinecone Create Index with Custom Settings checked" width="700"/>
 
 Set these values exactly:
 
@@ -61,13 +61,13 @@ Set these values exactly:
 
 Click **"Create index"**. Wait for the green dot — it is ready.
 
-![Pinecone index showing green status dot and Dimension: 1024]
+<img src="images/05-pinecone-index-ready.png" alt="Pinecone index ready with green dot and 1024 dimensions" width="700"/>
 
 ### Step 1.4 — Get your API key
 
 In the left sidebar click **API keys** (under the MANAGE section). Copy your key — it starts with `pcsk_`.
 
-![Pinecone API keys page with the key value highlighted]
+<img src="images/06-pinecone-api-key.png" alt="Pinecone API keys page" width="700"/>
 
 > Save this key. You will paste it into n8n in a later step.
 
@@ -85,7 +85,7 @@ Go to **https://dashboard.cohere.com** and sign up with your email.
 
 Click **API Keys** in the left sidebar. Under **Trial keys**, click the eye icon to reveal your key.
 
-![Cohere dashboard API Keys page with Trial keys section and eye icon highlighted]
+<img src="images/07-cohere-api-key.png" alt="Cohere API Keys page with trial key" width="700"/>
 
 Copy the key. The trial is completely free and works for this course.
 
@@ -101,13 +101,13 @@ Go to **https://n8n.io** and click "Get started free". Sign up and verify your e
 
 Your workspace will be at `yourname.app.n8n.cloud`.
 
-![n8n cloud dashboard after first login showing empty workflow canvas]
+<img src="images/08-n8n-dashboard.png" alt="n8n cloud dashboard after first login" width="700"/>
 
 ### Step 3.2 — Add your credentials
 
 Go to **Personal → Credentials** tab and click **"Create credential"**.
 
-![n8n Credentials page showing the Create credential button]
+<img src="images/09-n8n-credentials-empty.png" alt="n8n Credentials page with Create credential button" width="700"/>
 
 **Add Cohere:**
 - Search for `Cohere`
@@ -120,7 +120,7 @@ Go to **Personal → Credentials** tab and click **"Create credential"**.
 - Paste your Pinecone API key (`pcsk_...`)
 - Click Save
 
-![n8n Credentials page showing both Cohere and Pinecone credentials saved]
+<img src="images/10-n8n-credentials-saved.png" alt="n8n Credentials page with Cohere and Pinecone saved" width="700"/>
 
 ---
 
@@ -136,7 +136,7 @@ Click the **+** button next to the n8n logo and select New Workflow. Name it **"
 
 Click **"Add first step..."**. The Manual Trigger node appears automatically.
 
-![n8n canvas showing the Manual Trigger node added]
+<img src="images/11-n8n-manual-trigger.png" alt="n8n canvas with Manual Trigger node" width="700"/>
 
 ### Step 4.3 — Add the HTTP Request node
 
@@ -158,7 +158,7 @@ To: `https://raw.githubusercontent.com/username/repo/branch/file.md`
 
 Remove `/blob/` and change `github.com` to `raw.githubusercontent.com`.
 
-![HTTP Request node configuration showing the URL field and Response Format set to Text]
+<img src="images/12-n8n-http-request.png" alt="HTTP Request node with URL and Response Format Text" width="700"/>
 
 ### Step 4.4 — Add Pinecone Vector Store
 
@@ -172,7 +172,7 @@ Configure it:
 | Operation Mode | Insert Documents |
 | Pinecone Index | rag-docs (select from dropdown) |
 
-![Pinecone Vector Store node showing Insert Documents mode and index selected]
+<img src="images/13-n8n-pinecone-insert.png" alt="Pinecone Vector Store in Insert Documents mode" width="700"/>
 
 ### Step 4.5 — Add the Embedding model
 
@@ -180,7 +180,7 @@ At the bottom of the Pinecone node click the **Embedding +** button. Search for 
 
 Set Model to **Embed-English-v3.0 (1024 Dimensions)**.
 
-![Embeddings Cohere node showing model set to Embed-English-v3.0]
+<img src="images/14-n8n-embeddings-cohere.png" alt="Embeddings Cohere node with Embed-English-v3.0" width="700"/>
 
 ### Step 4.6 — Add the Document Loader
 
@@ -190,7 +190,7 @@ Set:
 - Type of Data: **JSON**
 - Text Splitting: **Custom**
 
-![Default Data Loader node showing JSON type and Custom text splitting]
+<img src="images/15-n8n-data-loader.png" alt="Default Data Loader node with JSON and Custom splitting" width="700"/>
 
 ### Step 4.7 — Add the Text Splitter
 
@@ -200,7 +200,7 @@ Set:
 - Chunk Size: **500**
 - Chunk Overlap: **50**
 
-![Recursive Character Text Splitter node showing Chunk Size 500 and Overlap 50]
+<img src="images/16-n8n-text-splitter.png" alt="Recursive Character Text Splitter with Chunk Size 500 Overlap 50" width="700"/>
 
 > **What are chunks?** Your document gets cut into small pieces (chunks) of about 500 words each, with 50 words shared between neighbouring chunks so nothing gets cut off mid-thought.
 
@@ -208,11 +208,76 @@ Set:
 
 Click **"Execute workflow"**. All nodes should turn green.
 
-![n8n canvas showing all ingestion nodes with green checkmarks]
+<img src="images/17-n8n-ingestion-success.png" alt="n8n ingestion canvas with all green nodes" width="700"/>
 
 Go to your Pinecone dashboard → Database → your index → Browser tab. You should see vectors appearing with your document content stored as metadata.
 
-![Pinecone Browser tab showing records with pageContent and metadata visible]
+<img src="images/18-pinecone-vectors-stored.png" alt="Pinecone Browser tab with stored vectors and metadata" width="700"/>
+
+### Step 4.9 — If you get a 429 Rate Limit error from Cohere
+
+The Cohere free trial allows 100,000 tokens per minute. If your document produces many chunks, you may hit this limit. Here is how to fix it:
+
+**Add a Loop + Wait between HTTP Request and Pinecone:**
+
+1. Click the connection line between HTTP Request and Pinecone Vector Store to insert a node
+2. Search for **"Loop Over Items"** and add it — set **Batch Size to 5**
+3. Click **+** on the **"loop"** output of the Loop node
+4. Search for **"Wait"** and add it — set to **3 seconds**
+5. Connect the Wait node's output to the Pinecone Vector Store node
+
+Your flow should now look like:
+
+```
+HTTP Request → Loop Over Items (5) → Wait (3s) → Pinecone Vector Store
+                        ↓ done
+                       (end)
+```
+
+> **Why this works:** Instead of sending all chunks to Cohere at once, you now send 5 chunks, pause 3 seconds, send the next 5, and so on — staying well within the rate limit.
+
+> **Still hitting the limit?** Increase the Wait time to 6 seconds, or reduce the batch size to 3.
+
+### ⚠️ Important — Use clean text, not raw HTML
+
+If you are fetching content from a GitHub page URL (e.g. `https://github.com/username/repo`), n8n downloads the full HTML of the page including navigation menus, SVG icons, and code. This garbage data gets embedded into Pinecone and pollutes your search results.
+
+**Always use the raw content URL instead:**
+
+Change: `https://github.com/username/repo/blob/branch/file.md`
+
+To: `https://raw.githubusercontent.com/username/repo/branch/file.md`
+
+Remove `/blob/` and change `github.com` to `raw.githubusercontent.com`. This gives you plain text with no HTML noise.
+
+> **Signs your data is dirty:** If you open the Embeddings Cohere node and see chunks full of `<path d="M1.5 3.25...">` or `data-view-component="true"` — you are embedding HTML, not content. Delete your Pinecone index, fix the URL, and re-run ingestion.
+
+---
+
+## Part 4.10 — Managing Your Pinecone Index Data
+
+**Pinecone never deletes old data automatically.** Every time you run the ingestion workflow, it adds new vectors on top of whatever is already there. This means:
+
+- If you re-ingest after fixing a bug, old bad vectors remain alongside new good ones
+- If you change your document, both old and new chunks coexist
+- Query results will mix old and new data
+
+**How to clear your index before re-ingesting:**
+
+1. Go to **https://pinecone.io** → Database → Indexes → your index
+2. Click the **Namespaces** tab
+3. Click **"Delete all"** to wipe all vectors
+4. Re-run your ingestion workflow with clean data
+
+**Best practice — use Namespaces to separate datasets:**
+
+If you plan to ingest multiple documents or versions, use Pinecone namespaces so they don't mix:
+
+In your Pinecone Vector Store node (both ingestion and query), set:
+- Namespace: `week9-docs` for one dataset
+- Namespace: `week10-docs` for another
+
+Then in your query pipeline, set the same namespace so you only search the right data.
 
 ---
 
@@ -230,7 +295,7 @@ Click **"Add first step..."**. Search for **"Chat"** and select **"On new Chat e
 
 Inside the node, toggle **"Make Chat Publicly Available"** to ON. Note the Chat URL — this is the link you share with students.
 
-![Chat Trigger node showing Make Chat Publicly Available toggle turned ON and the chat URL]
+<img src="images/19-n8n-chat-trigger.png" alt="Chat Trigger node with Make Chat Publicly Available ON" width="700"/>
 
 ### Step 5.3 — Add Pinecone Vector Store (retrieval)
 
@@ -248,7 +313,7 @@ Configure it:
 
 Click the **Embedding +** button and add **Embeddings Cohere** with model **Embed-English-v3.0**.
 
-![Pinecone Vector Store node in Get Many mode with Include Metadata toggled ON]
+<img src="images/20-n8n-pinecone-retrieve.png" alt="Pinecone Vector Store in Get Many mode with metadata ON" width="700"/>
 
 ### Step 5.4 — Add the Edit Fields node (citation builder)
 
@@ -279,7 +344,7 @@ At the end of your answer write exactly:
 
 Toggle **"Include Other Input Fields"** to ON.
 
-![Edit Fields node showing the prompt field with expression and Include Other Input Fields ON]
+<img src="images/21-n8n-edit-fields.png" alt="Edit Fields node with prompt expression and Include Other Input Fields ON" width="700"/>
 
 ### Step 5.5 — Add the Basic LLM Chain
 
@@ -289,7 +354,17 @@ Change **"Source for Prompt"** to **"Define below"**.
 
 The Prompt field now shows `{{ $json.prompt }}` — this picks up the citation prompt you built in the previous node.
 
-![Basic LLM Chain node showing Source for Prompt set to Define below and prompt field showing $json.prompt]
+<img src="images/22-n8n-basic-llm-chain.png" alt="Basic LLM Chain with Define below and $json.prompt" width="700"/>
+
+> **Important — stop the LLM answering from general knowledge:** By default the Cohere model will answer any question using its own training data, even if that topic is not in your document. To force it to answer only from your retrieved chunks, click **"Add prompt"** inside the Basic LLM Chain and add a **System** prompt with this text:
+>
+> ```
+> You are a helpful assistant. Answer ONLY based on the context provided.
+> If the answer is not in the context, say "I don't have that information in my knowledge base."
+> Do NOT use your general knowledge.
+> ```
+>
+> Test it by asking a question you know is NOT in your document (e.g. "What is the capital of France?"). It should now say it cannot find the answer rather than answering from general knowledge.
 
 ### Step 5.6 — Add Cohere Chat Model
 
@@ -299,7 +374,7 @@ Set:
 - Credential: Cohere account
 - Model: **command-r-plus-08-2024**
 
-![Cohere Chat Model node showing command-r-plus-08-2024 selected]
+<img src="images/23-n8n-cohere-chat-model.png" alt="Cohere Chat Model with command-r-plus-08-2024" width="700"/>
 
 ### Step 5.7 — Publish and test
 
@@ -313,7 +388,7 @@ You should see an answer followed by:
 📄 Source: lines 1–3 from the course document
 ```
 
-![Chat interface showing a question answered with a citation at the bottom showing line numbers]
+<img src="images/24-chat-with-citation.png" alt="Chat interface showing answer with citation line numbers" width="700"/>
 
 ---
 
@@ -402,9 +477,13 @@ Ask an ambiguous question. Watch how the model signals its own uncertainty.
 |---------|---------------|
 | 404 error on chat URL | Toggle "Make Chat Publicly Available" ON in the Chat Trigger node, then re-publish |
 | Answer not from your document | Check Pinecone dashboard — are vectors showing in the Browser tab? |
-| Rate limit error (429) | Wait 60 seconds — Cohere free tier allows 100,000 tokens per minute |
+| Rate limit error (429) | See the full fix in Part 4.9 below — Cohere free tier allows 100,000 tokens per minute |
 | Dimension mismatch error | Delete your Pinecone index and recreate it with exactly 1024 dimensions |
 | Answer says "Sources used:" but nothing after | Check that Include Other Input Fields is ON in the Edit Fields node |
+| RAG answers questions not in your document | The LLM is using its own general knowledge — add a System prompt in the Basic LLM Chain to restrict it to context only (see Step 5.5) |
+| Chunks contain HTML tags like `<path>` or `<svg>` | You are scraping a GitHub page URL — switch to the raw.githubusercontent.com URL instead (see Step 4.9) |
+| Re-ingesting adds duplicates | Pinecone keeps all old vectors — delete all vectors in the Pinecone dashboard before re-ingesting (see Part 4.10) |
+| 429 error even with small files | Your chunks may be very large — reduce Chunk Size to 200 in the Text Splitter node, and add a Loop Over Items + Wait node (see Step 4.9) |
 
 ---
 
