@@ -37,7 +37,7 @@ Once logged in, look at the left sidebar and click **Database**, then **Indexes*
 
 <img src="images/02-pinecone-sidebar.png" alt="Pinecone left sidebar with Database and Indexes" width="700"/>
 
-Click the blue **"Create index"** button in the top right corner.
+Click the blue **"Create index"** button in the top right corner. 
 
 <img src="images/03-pinecone-create-index-button.png" alt="Pinecone Indexes page with Create Index button" width="700"/>
 
