@@ -27,7 +27,7 @@ Pinecone is where your document chunks are stored as numbers (vectors) so they c
 
 ### Step 1.1 — Create your account
 
-Go to **https://pinecone.io** and click Sign Up. Verify your email and log in.
+Go to **https://pinecone.io** and click Sign Up/Start for free. Verify your email and log in.
 
 <img src="images/01-pinecone-signup.png" alt="Pinecone signup page" width="700"/>
 
@@ -37,7 +37,7 @@ Once logged in, look at the left sidebar and click **Database**, then **Indexes*
 
 <img src="images/02-pinecone-sidebar.png" alt="Pinecone left sidebar with Database and Indexes" width="700"/>
 
-Click the blue **"Create index"** button in the top right corner. 
+Click the blue **"Create index"** button . 
 
 <img src="images/03-pinecone-create-index-button.png" alt="Pinecone Indexes page with Create Index button" width="700"/>
 
@@ -111,7 +111,7 @@ Go to **Personal → Credentials** tab and click **"Create credential"**.
 
 **Add Cohere:**
 - Search for `Cohere`
-- Paste your Cohere trial API key
+- Paste your Cohere trial API key that you already saved
 - Click Save
 
 **Add Pinecone:**
