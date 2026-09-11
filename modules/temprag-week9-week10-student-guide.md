@@ -39,7 +39,7 @@ Once logged in, look at the left sidebar and click **Database**, then **Indexes*
 
 Click the blue **"Create index"** button . 
 
-<img src="images/03-pinecone-create-index-button.png" alt="Pinecone Indexes page with Create Index button" width="700"/>
+<img src="images/04-pinecone-createindex.png" alt="Pinecone Indexes page with Create Index button" width="700"/>
 
 ### Step 1.3 — Configure your index
 
@@ -47,21 +47,23 @@ Give your index a name — for example `rag-docs`.
 
 Check the **"Custom settings"** box in the top right of the Configuration section.
 
-<img src="images/04-pinecone-custom-settings.png" alt="Pinecone Create Index with Custom Settings checked" width="700"/>
-
-Set these values exactly:
-
 | Setting | Value |
 |---------|-------|
 | Dimensions | **1024** |
 | Metric | **cosine** |
 | Capacity mode | **Serverless** |
 
+<img src="images/05-pinecone-customindexsettings.png" alt="Pinecone Create Index with Custom Settings checked" width="700"/>
+
+Set these values exactly:
+
+
+
 > **Why 1024?** The embedding model we use (Cohere embed-english-v3.0) converts text into lists of 1024 numbers. Your index must match this exactly.
 
 Click **"Create index"**. Wait for the green dot — it is ready.
 
-<img src="images/05-pinecone-index-ready.png" alt="Pinecone index ready with green dot and 1024 dimensions" width="700"/>
+<img src="images/06-pinecone-index.png" alt="Pinecone index ready with green dot and 1024 dimensions" width="700"/>
 
 ### Step 1.4 — Get your API key
 
@@ -100,8 +102,6 @@ n8n connects everything together — it is the engine that runs your RAG pipelin
 Go to **https://n8n.io** and click "Get started free". Sign up and verify your email.
 
 Your workspace will be at `yourname.app.n8n.cloud`.
-
-<img src="images/08-n8n-dashboard.png" alt="n8n cloud dashboard after first login" width="700"/>
 
 ### Step 3.2 — Add your credentials
 
