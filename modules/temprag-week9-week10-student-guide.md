@@ -352,7 +352,7 @@ Configure it:
 
 Click the **Embedding +** button and add **Embeddings Cohere** with model **Embed-English-v3.0**.
 
-<img src="images/20-n8n-pinecone-retrieve.png" alt="Pinecone Vector Store in Get Many mode with metadata ON" width="700"/>
+<img src="images/20-n8n-pinecone-retrieve.png" alt="Pinecone Vector Store in Get Many mode with metadata ON" width="700"/><img src="images/20-n8n-pinecone-retrieve2.png" alt="Pinecone Vector Store in Get Many mode with metadata ON" width="700"/>
 
 ### Step 5.4 — Add the Edit Fields node (citation builder)
 
